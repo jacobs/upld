@@ -1,0 +1,31 @@
+        <h3 style="margin-top:4px">Invite a User</h3>
+        <form class="login-form" action="/admin/invite" method="post">
+            <input type="text" name="username" value="Username"
+                class="textfield"
+                onfocus="checkField(this, 'Username')"
+                onblur="checkField(this, 'Username')" />
+            <input type="text" name="email" value="Email"
+                class="textfield"
+                onfocus="checkField(this, 'Email')"
+                onblur="checkField(this, 'Email')" />
+            <input type="text" name="space" value="File Space (in MB)"
+                class="textfield"
+                onfocus="checkField(this, 'File Space (in MB)')"
+                onblur="checkField(this, 'File Space (in MB)')" />
+            <div id="login-info"><%= flash[:notice] if flash[:notice] %></div>
+            <input type="submit" value="Invite" class="button" />
+            <div style="clear:both"></div>
+        </form>
+        <h3>Site Statistics</h3>
+        <ul>
+            <li>Uploads: <%= @uploads.count %></li>
+            <li>Users: <%= @users.count %></li>
+            <li>Storage Used: <%= @storage_used %> MB</li>
+        </ul>
+        <h3>User List</h3>
+        <ul>
+            <% @users.each do |user| %>
+            <li><%= user.username %> (<%= user.email %>) &mdash; Used
+                <%= user.file_used/1048576 %> MB</li>
+            <% end %>
+        </ul>

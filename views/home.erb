@@ -1,0 +1,20 @@
+        <h3 style="margin-top:4px">Welcome.</h3>
+        <p>
+            If you haven't yet, go <a href="#">download the Mac menubar app</a>
+            for UPLD.IN. It's how you'll be uploading to the site and managing
+            your uploads.
+        </p>
+        <h3>Change Password</h3>
+        <form class="login-form" action="/password" method="post">
+            <input type="text" name="current" value="Current Password"
+                class="textfield"
+                onfocus="checkPasswordField(this, 'Current Password')"
+                onblur="checkPasswordField(this, 'Current Password')" />
+            <input type="text" name="new" value="New Password"
+                class="textfield"
+                onfocus="checkPasswordField(this, 'New Password')"
+                onblur="checkPasswordField(this, 'New Password')" />
+            <div id="login-info"><%= flash[:notice] if flash[:notice] %></div>
+            <input type="submit" value="Change" class="button" />
+            <div style="clear:both"></div>
+        </form>

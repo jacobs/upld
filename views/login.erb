@@ -1,0 +1,11 @@
+        <form class="login-form" action="/login" method="post">
+            <input type="text" name="username" value="Username"
+                class="textfield" onfocus="checkField(this, 'Username')"
+                onblur="checkField(this, 'Username')" />
+            <input type="text" name="password" value="Password"
+                class="textfield" onfocus="checkPasswordField(this, 'Password')"
+                onblur="checkPasswordField(this, 'Password')" />
+            <div id="login-info"><%= flash[:notice] if flash[:notice] %></div>
+            <input type="submit" value="Login" class="button" />
+            <div style="clear:both"></div>
+        </form>
