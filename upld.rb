@@ -242,9 +242,9 @@ post '/admin/invite/?' do
         if @new_user.save!
           Pony.mail :to => @new_user.email,
                      :from => @user.email,
-                     :subject => 'UPLD.IN Invite',
+                     :subject => 'UPLD Invite',
                      :body => %{\
-You have been invited to UPLD.IN, a simple, private file sharing service. Go \
+You have been invited to UPLD, a simple, private file sharing service. Go \
 to http://upld.ausgat.com/ and sign in with the username \
 "#{@new_user.username}" and the password "password". Please change your \
 password as soon as you can.
